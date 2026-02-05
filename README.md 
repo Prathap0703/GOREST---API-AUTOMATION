@@ -1,0 +1,188 @@
+# GoRest API Automation – CRUD Testing
+
+## Overview
+
+This project is a simple API automation framework created to test the GoRest Users API.
+It automates the complete CRUD flow (Create, Read, Update, Delete) and verifies that the APIs are working correctly by validating responses, status codes, and error scenarios.
+
+The project is designed in a clean and easy-to-understand way to demonstrate how real-world API automation works.
+
+---
+
+## Objective of the Project
+
+The main goal of this project is to automate user-related APIs and verify their behaviour using automation.
+
+This project performs:
+
+* Creating a new user using API
+* Fetching the same user using generated user ID
+* Updating user details
+* Deleting the user
+* Verifying that the user is deleted
+* Running a negative test using invalid user ID
+
+Each step checks whether the API response is correct.
+
+---
+
+## Technologies Used
+
+* Java
+* Maven
+* RestAssured
+* TestNG
+* Jackson
+* IntelliJ IDEA/VS Code
+
+---
+
+## API Details
+
+Base URL:
+[https://gorest.co.in](https://gorest.co.in)
+
+APIs automated:
+
+* POST /public/v2/users → Create user
+* GET /public/v2/users/{userId} → Get user
+* PUT /public/v2/users/{userId} → Update user
+* DELETE /public/v2/users/{userId} → Delete user
+
+Authentication:
+Bearer token is used and stored in the config.properties file.
+
+---
+
+## Project Structure
+
+The project is divided into simple modules:
+
+* BaseTest → handles base URL and authorization setup
+* UserApiClient → contains API request methods
+* User model → stores user request and response data
+* Utils → helper classes for configuration and random data
+* UserCrudTest → main test class that runs complete CRUD automation
+
+---
+
+## How the Project Works
+
+When the automation test runs, it executes the following flow:
+
+### 1. Create User
+
+* Sends POST request with random user details
+* API returns user data and user ID
+* Status code 201 is validated
+
+### 2. Get User
+
+* Sends GET request using created user ID
+* Confirms user data is correct
+* Status code 200 is validated
+
+### 3. Update User
+
+* Updates user name or status
+* Confirms updated data in response
+* Status code 200 is validated
+
+### 4. Delete User
+
+* Deletes the user using DELETE request
+* Status code 204 is validated
+
+### 5. Verify Deletion
+
+* Sends GET request again for same user
+* API returns 404 (user not found)
+
+### 6. Negative Test
+
+* Sends request with invalid user ID
+* API returns error response (404)
+
+---
+
+## Output of the Project
+
+When the test runs, detailed execution logs are shown in the terminal:
+
+* User created successfully
+* User fetched successfully
+* User updated successfully
+* User deleted successfully
+* Deletion verified
+* Negative test executed
+
+Final output:
+
+Tests run: 2
+Failures: 0
+BUILD SUCCESS
+
+This confirms that all API operations executed successfully.
+
+---
+
+## How to Run the Project
+
+### Prerequisites
+
+Make sure these are installed:
+
+* Java
+* Maven
+* IntelliJ IDEA
+
+---
+
+### Setup Steps
+
+1. Download or clone the project
+2. Open the project in IntelliJ
+3. Add GoRest token in:
+
+src/test/resources/config.properties
+
+Example:
+
+base.url=[https://gorest.co.in](https://gorest.co.in)
+auth.token=YOUR_ACCESS_TOKEN
+
+---
+
+### Run Tests
+
+Option 1 – IntelliJ
+Right click on UserCrudTest → Run
+
+Option 2 – Terminal
+
+Navigate to project folder and run:
+
+mvn test
+
+---
+
+## Validations Covered
+
+* HTTP status code validation
+* Response data validation
+* Header validation
+* Negative testing
+* Request chaining
+
+---
+
+## Final Result
+
+The automation successfully performs complete CRUD operations and validates the API responses step-by-step.
+All tests passed successfully with no failures.
+
+This project demonstrates a simple and structured way of implementing API automation.
+
+---
+
+
