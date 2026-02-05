@@ -15,12 +15,12 @@ The main goal of this project is to automate user-related APIs and verify their 
 
 This project performs:
 
-* Creating a new user using API
-* Fetching the same user using generated user ID
-* Updating user details
-* Deleting the user
-* Verifying that the user is deleted
-* Running a negative test using invalid user ID
+- Creating a new user using API
+- Fetching the same user using generated user ID
+- Updating user details
+- Deleting the user
+- Verifying that the user is deleted
+- Running a negative test using invalid user ID
 
 Each step checks whether the API response is correct.
 
@@ -28,29 +28,29 @@ Each step checks whether the API response is correct.
 
 ## Technologies Used
 
-* Java
-* Maven
-* RestAssured
-* TestNG
-* Jackson
-* IntelliJ IDEA/VS Code
+- Java
+- Maven
+- RestAssured
+- TestNG
+- Jackson
+- IntelliJ IDEA / VS Code
 
 ---
 
 ## API Details
 
-Base URL:
-[https://gorest.co.in](https://gorest.co.in)
+**Base URL:**
+https://gorest.co.in
 
-APIs automated:
+**APIs automated:**
 
-* POST /public/v2/users → Create user
-* GET /public/v2/users/{userId} → Get user
-* PUT /public/v2/users/{userId} → Update user
-* DELETE /public/v2/users/{userId} → Delete user
+- POST /public/v2/users → Create user
+- GET /public/v2/users/{userId} → Get user
+- PUT /public/v2/users/{userId} → Update user
+- DELETE /public/v2/users/{userId} → Delete user
 
-Authentication:
-Bearer token is used and stored in the config.properties file.
+**Authentication:**
+Bearer token is used and stored in the `config.properties` file.
 
 ---
 
@@ -58,11 +58,11 @@ Bearer token is used and stored in the config.properties file.
 
 The project is divided into simple modules:
 
-* BaseTest → handles base URL and authorization setup
-* UserApiClient → contains API request methods
-* User model → stores user request and response data
-* Utils → helper classes for configuration and random data
-* UserCrudTest → main test class that runs complete CRUD automation
+- BaseTest → handles base URL and authorization setup
+- UserApiClient → contains API request methods
+- User model → stores user request and response data
+- Utils → helper classes for configuration and random data
+- UserCrudTest → main test class that runs complete CRUD automation
 
 ---
 
@@ -72,36 +72,36 @@ When the automation test runs, it executes the following flow:
 
 ### 1. Create User
 
-* Sends POST request with random user details
-* API returns user data and user ID
-* Status code 201 is validated
+- Sends POST request with random user details
+- API returns user data and user ID
+- Status code 201 is validated
 
 ### 2. Get User
 
-* Sends GET request using created user ID
-* Confirms user data is correct
-* Status code 200 is validated
+- Sends GET request using created user ID
+- Confirms user data is correct
+- Status code 200 is validated
 
 ### 3. Update User
 
-* Updates user name or status
-* Confirms updated data in response
-* Status code 200 is validated
+- Updates user name or status
+- Confirms updated data in response
+- Status code 200 is validated
 
 ### 4. Delete User
 
-* Deletes the user using DELETE request
-* Status code 204 is validated
+- Deletes the user using DELETE request
+- Status code 204 is validated
 
 ### 5. Verify Deletion
 
-* Sends GET request again for same user
-* API returns 404 (user not found)
+- Sends GET request again for same user
+- API returns 404 (user not found)
 
 ### 6. Negative Test
 
-* Sends request with invalid user ID
-* API returns error response (404)
+- Sends request with invalid user ID
+- API returns error response (404)
 
 ---
 
@@ -109,12 +109,13 @@ When the automation test runs, it executes the following flow:
 
 When the test runs, detailed execution logs are shown in the terminal:
 
-* User created successfully
-* User fetched successfully
-* User updated successfully
-* User deleted successfully
-* Deletion verified
-* Negative test executed
+- User created successfully
+- User fetched successfully
+- User updated successfully
+- User deleted successfully
+- Deletion verified
+- Negative test executed
+
 
 Final output:
 
@@ -148,7 +149,7 @@ src/test/resources/config.properties
 
 Example:
 
-base.url=[https://gorest.co.in](https://gorest.co.in)
+base.url= https://gorest.co.in
 auth.token=YOUR_ACCESS_TOKEN
 
 ---
